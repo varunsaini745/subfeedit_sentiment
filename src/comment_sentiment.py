@@ -2,6 +2,7 @@ from textblob import TextBlob
 import requests
 from src.model import Comment
 
+
 def analyze_sentiment(text: str):
     analysis = TextBlob(text)
     polarity = analysis.sentiment.polarity
@@ -9,9 +10,11 @@ def analyze_sentiment(text: str):
     return polarity, classification
 
 
-def comment_sentiment(url: str, subfeddit_id: int = 0, skip: int =  0, limit: int = 25):
+def comment_sentiment(url: str, subfeddit_id: int = 0, skip: int = 0, limit: int = 25):
     final_result = []
-    response_subfeddit = requests.get(url, params={"subfeddit_id": subfeddit_id, "skip": skip, "limit": limit})
+    response_subfeddit = requests.get(
+        url, params={"subfeddit_id": subfeddit_id, "skip": skip, "limit": limit}
+    )
     response_subfeddit = response_subfeddit.json()
     print(response_subfeddit)
     for i in response_subfeddit["comments"]:
@@ -20,11 +23,10 @@ def comment_sentiment(url: str, subfeddit_id: int = 0, skip: int =  0, limit: in
             text=i["text"],
             polarity=analyze_sentiment(i["text"])[0],
             classification=analyze_sentiment(i["text"])[1],
-            created_time=i["created_at"]
+            created_time=i["created_at"],
         )
         final_result.append(comment.dict())
     return final_result
-
 
 
 if __name__ == "__main__":
