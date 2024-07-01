@@ -21,7 +21,9 @@ def comment_sorting(
             and (comment["created_time"] <= end_time)
         ]
     if polarity == "asc":
-        final_result = sorted(final_result, key=lambda x: x["polarity"], reverse=False)
+        final_result = sorted(final_result,
+                              key=lambda x: x["polarity"], reverse=False)
     elif polarity == "desc":
-        final_result = sorted(final_result, key=lambda x: x["polarity"], reverse=True)
+        final_result = sorted(final_result,
+                              key=lambda x: x["polarity"], reverse=True)
     return final_result
