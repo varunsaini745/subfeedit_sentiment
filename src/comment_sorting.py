@@ -16,9 +16,9 @@ def comment_sorting(
         final_result = [
             comment
             for comment in final_result
-            if comment["created_time"] >= start_time
-            and comment["created_time"] <= end_time
+            if comment["created_time"] >= start_time and comment["created_time"] <= end_time
         ]
     elif sorting_parameter == "polarity":
-        final_result = sorted(final_result, key=lambda x: x["polarity"], reverse=True)
+        final_result = sorted(final_result,
+                              key=lambda x: x["polarity"], reverse=True)
     return final_result

@@ -10,10 +10,12 @@ def analyze_sentiment(text: str):
     return polarity, classification
 
 
-def comment_sentiment(url: str, subfeddit_id: int = 0, skip: int = 0, limit: int = 25):
+def comment_sentiment(url: str, subfeddit_id: int = 0,
+                      skip: int = 0, limit: int = 25):
     final_result = []
     response_subfeddit = requests.get(
-        url, params={"subfeddit_id": subfeddit_id, "skip": skip, "limit": limit}
+        url, params={"subfeddit_id": subfeddit_id,
+                     "skip": skip, "limit": limit}
     )
     response_subfeddit = response_subfeddit.json()
     print(response_subfeddit)

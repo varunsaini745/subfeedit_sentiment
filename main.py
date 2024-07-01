@@ -21,9 +21,11 @@ async def root():
 
 
 @prefix_router.get("/subfeddits")
-async def get_data(url: str, subfeddit_id: int = 0, skip: int = 0, limit: int = 25):
+async def get_data(url: str, subfeddit_id: int = 0,
+                   skip: int = 0, limit: int = 25):
     response = requests.get(
-        url, params={"subfeddit_id": subfeddit_id, "skip": skip, "limit": limit}
+        url, params={"subfeddit_id": subfeddit_id,
+                     "skip": skip, "limit": limit}
     )
     return response.json()
 
