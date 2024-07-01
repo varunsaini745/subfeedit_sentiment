@@ -27,7 +27,7 @@ def comment_sentiment(url: str, subfeddit_id: int = 0,
             classification=analyze_sentiment(i["text"])[1],
             created_time=i["created_at"],
         )
-        final_result.append(comment.dict())
+        final_result.append(comment.model_dump())
     return final_result
 
 
