@@ -3,4 +3,4 @@ from .model import Comment
 from .comment_sorting import comment_sorting
 
 
-__all__ = ['comment_sentiment', 'comment_sorting', 'Comment']
+__all__ = ["comment_sentiment", "comment_sorting", "Comment"]

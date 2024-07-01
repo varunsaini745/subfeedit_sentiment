@@ -10,12 +10,10 @@ def analyze_sentiment(text: str):
     return polarity, classification
 
 
-def comment_sentiment(url: str, subfeddit_id: int = 0,
-                      skip: int = 0, limit: int = 25):
+def comment_sentiment(url: str, subfeddit_id: int = 0, skip: int = 0, limit: int = 25):
     final_result = []
     response_subfeddit = requests.get(
-        url, params={"subfeddit_id": subfeddit_id,
-                     "skip": skip, "limit": limit}
+        url, params={"subfeddit_id": subfeddit_id, "skip": skip, "limit": limit}
     )
     response_subfeddit = response_subfeddit.json()
     print(response_subfeddit)
@@ -33,10 +31,5 @@ def comment_sentiment(url: str, subfeddit_id: int = 0,
 
 if __name__ == "__main__":
     text = "I love the weather today"
-    # response = get_data("http://0.0.0.0:8080/api/v1/comments", 1, 0, 25)
-    # print(response["comments"])
-    # polarity, classification = analyze_sentiment(text)
-    # print(f"Polarity: {polarity}")
-    # print(f"Classification: {classification}")
     result = comment_sentiment("http://0.0.0.0:8080/api/v1/comments", 1, 0, 25)
     print(result)
