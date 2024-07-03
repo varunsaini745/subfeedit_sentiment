@@ -7,8 +7,6 @@ This project is a FastAPI application that provides an endpoint for analyzing th
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
-- [Running Tests](#running-tests)
-- [Project Structure](#project-structure)
 
 ## Installation
 
